@@ -20,13 +20,13 @@ class Lecture(models.Model):
         verbose_name_plural = "Lectures"
 
     #Relations
-    date = models.OneToOneField(Calendar, related_name='lectures', unique=True)
+    # date = models.OneToOneField(Calendar, related_name='lectures')
 
     #Attributes
     type = models.CharField(max_length = 50, blank=False)
     lecture = models.TextField(max_length=10000, blank=False)
-
+    date=models.DateField(auto_now_add=False)
 
     def __str__(self):
-    	return self.type
+    	return self.type + " " + str(self.date)
     
